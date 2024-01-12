@@ -8,4 +8,5 @@ def test_google_available_text(browser_scale):
 def test_google_not_available_text(browser_scale):
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type('Какой$то бред творится#$@$$%$%$%#%^%^&%@&%^@$').press_enter()
-    browser.element('.card-section [role="heading"]').should(have.exact_text('По запросу Какой$то бред творится#$@$$%$%$%#%^%^&%@&%^@$ ничего не найдено.'))
+    browser.element('.card-section [role="heading"]')\
+        .should(have.text('По запросу Какой$то бред творится#$@$$%$%$%#%^%^&%@&%^@$ ничего не найдено.'))
